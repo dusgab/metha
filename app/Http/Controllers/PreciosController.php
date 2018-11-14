@@ -5,7 +5,7 @@ namespace MOHA\Http\Controllers;
 use Illuminate\Http\Request;
 use MOHA\Operacionoferta;
 use MOHA\Operaciondemanda;
-use MOHA\contraoferta;
+use MOHA\Contraoferta;
 use MOHA\Demanda;
 use Illuminate\Support\Facades\DB;
 use DateTime;
