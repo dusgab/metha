@@ -101,15 +101,6 @@ class RegisterController extends Controller
             $is_rep = true;      
         }
 
-        // if($data['renspa'] != "")
-        // {
-        //     $registro = $data['renspa'];
-        // }
-        // else 
-        // {
-        //     $registro = $data['matricula'];   
-        // }
-
         DB::beginTransaction();
 
         try {

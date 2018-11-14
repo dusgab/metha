@@ -1,6 +1,6 @@
 <center>
         <div class="content" style="width:100%;height:20%;background-color:#7fb850;padding:15px; ">
-        <center><h2 style="color:#74787e;">METH</h2></center>
+        <center><h2 style="color:#74787e;">METHA</h2></center>
         <center><h4 style="color:white;">Mercado Electrónico de Transacciones Hortícola</h4></center>
         </div>
         <br>
@@ -19,8 +19,8 @@
         <p style="color:gray;">Cobro: {{$co->oferta->cobro->descripcion}}</p>
         <p style="color:gray;">Plazo (días): {{$co->oferta->plazo}}</p>
         <br>
-        <p><a href="{{ config('app.url') }}" type="button"  style="background-color:#3498db;border-radius:6px;color:white;height: 40px;border-style: hidden;padding: 10px;text-decoration: none" >Ir al Sitio METH WEB</a></p>
+        <p><a href="{{ config('app.url') }}" type="button"  style="background-color:#3498db;border-radius:6px;color:white;height: 40px;border-style: hidden;padding: 10px;text-decoration: none" >Ir al Sitio METHA</a></p>
         <br>
         <div class="content" style="width:100%;height:20%;background-color:#7fb850;padding:15px; ">
-        <center><h4 style="color:#74787e;">&copy; {{ date('Y') }} METH. Todos los derechos reservados.</h4></center></div>
+        <center><h4 style="color:#74787e;">&copy; {{ date('Y') }} METHA. Todos los derechos reservados.</h4></center></div>
 </center>
