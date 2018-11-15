@@ -13,12 +13,13 @@
         "laravel/framework": "5.5.*",
         "laravel/tinker": "~1.0",
         "laravelcollective/html": "^5.4.0",
+        "maatwebsite/excel": "~2.1.0",
         "orangehill/iseed": "dev-master"
     },
     "require-dev": {
         "filp/whoops": "~2.0",
         "fzaninotto/faker": "~1.7",
-        "mockery/mockery": "0.9.*",
+        "mockery/mockery": "0.9.*"
     },
     "autoload": {
         "classmap": [
