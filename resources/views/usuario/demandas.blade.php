@@ -8,7 +8,7 @@
     </div>
 @endif
 <div class="row">
-    @if(Auth::user()->activo === 1)
+    @if(Auth::user()->activo == 1)
         <button type="button" id="agregarDem" data-toggle="modal" data_target="#agregarDemanda" class="btn btn-success admin">Nueva Demanda</button>
     @else
         <button type="button" id="agregarDem" data-toggle="modal" disabled="" data_target="#agregarDemanda" class="btn btn-success admin">Nueva Demanda</button>

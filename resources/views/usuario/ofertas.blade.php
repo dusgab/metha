@@ -9,9 +9,9 @@
         </div>
     @endif
 	<div class="row">
-        @if(Auth::user()->activo === 1 && Auth::user()->pendientes === 0)
+        @if(Auth::user()->activo == 1 && Auth::user()->pendientes == 0)
             <button type="button" id="agregarOfer" data-toggle="modal" data_target="#agregarOferta" class="btn btn-success admin">Nueva Oferta</button>
-        @elseif(Auth::user()->pendientes === 1)
+        @elseif(Auth::user()->pendientes == 1)
             <div class="row">
                 <div class="col-md-12">
                     <div class="alert alert-danger activo" role="alert">

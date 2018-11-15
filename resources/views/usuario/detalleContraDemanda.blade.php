@@ -67,7 +67,7 @@
                 <tbody>
                 @foreach($cdemandas as $cd)
                    <tr> 
-                   	@if($cd->user->razonsocial === '')
+                   	@if($cd->user->razonsocial == '')
                     <td>{{$cd->user->apellido}} {{$cd->user->name}}</td>
                     @else
                     <td>{{$cd->user->razonsocial}}</td>
@@ -113,7 +113,7 @@
                         <td><input type="checkbox" name="recibido" value="3" title="Los Productos ya fueron recibidos" checked disabled></td>
                       @endif
                       </form>
-                      @if($cda->user->razonsocial === '')
+                      @if($cda->user->razonsocial == '')
                       <td>{{$cda->user->apellido}} {{$cda->user->name}}</td>
                       @else
                       <td>{{$cda->user->razonsocial}}</td>

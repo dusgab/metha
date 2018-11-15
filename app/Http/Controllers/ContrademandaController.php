@@ -84,8 +84,6 @@ class ContrademandaController extends Controller
             throw $e;
         }
 
-        
-
         return back();
     }
 

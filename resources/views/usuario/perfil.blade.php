@@ -1,7 +1,7 @@
 @extends('layouts.principal')
 
 @section('content')
-    @if($user->id === Auth::user()->id)
+    @if($user->id == Auth::user()->id)
     <div class="container datos">
         <div class="col-md-8 col-md-offset-2">
             <div class="panel panel-default">

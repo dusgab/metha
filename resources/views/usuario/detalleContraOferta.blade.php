@@ -67,7 +67,7 @@
                 @foreach($cofertas as $co)
                     @if($co->estado == 0)
                        <tr> 
-                       	@if($co->user->razonsocial === '')
+                       	@if($co->user->razonsocial == '')
                         <td>{{$co->user->apellido}} {{$co->user->name}}</td>
                         @else
                         <td>{{$co->user->razonsocial}}</td>
@@ -111,7 +111,7 @@
                         @else
                         <td></td>
                         @endif
-                        @if($coa->user->razonsocial === '')
+                        @if($coa->user->razonsocial == '')
                         <td> {{$coa->user->apellido}} {{$coa->user->name}}</td>
                         @else
                         <td>{{$coa->user->razonsocial}}</td>

@@ -55,7 +55,7 @@
                                 <td name="cantidad">{{$of->cantidad}}</td>
                                 <td name="precio">$ {{$of->precio}}</td>
                                 <td name="fechae">{{$of->fechaEntrega}}</td>
-                                @if($of->user->razonsocial === '')
+                                @if($of->user->razonsocial == '')
                                 <td>{{$of->user->apellido}} {{$of->user->name}}</td>
                                 @else
                                 <td>{{$of->user->razonsocial}}</td>
@@ -63,7 +63,7 @@
                                 <td>{{$of->puesto->descripcion}}</td>
                                 <td>{{$of->cobro->descripcion}}</td>
                                 <td>{{$of->plazo}}</td>
-                                <td>@if(Auth::user()->activo === 1 && Auth::user()->id != $of->user->id && Auth::user()->admin === 0)
+                                <td>@if(Auth::user()->activo == 1 && Auth::user()->id != $of->user->id && Auth::user()->admin == 0)
                                         <button type="button" id="ofertar" data-toggle="modal" onclick="ofertar({{$of->id}},{{$of->cantidad}},{{$of->precio}},{{$of->id_puesto}},{{$of->id_cobro}},'{{$of->plazo}}')" class="btn btn-success admin tabla">Ofertar</button>
                                     @else
                                         <button type="button" data-toggle="modal" data_target="#modalOfertar" disabled class="btn btn-success admin tabla" title="Su Usuario no está ACTIVO o esta Oferta es suya">Ofertar</button>
@@ -108,7 +108,7 @@
                                 <td name="cantidad">{{$of->cantidad}}</td>
                                 <td name="precio">$ {{$of->precio}}</td>
                                 <td name="fechae">{{$of->fechaEntrega}}</td>
-                                @if($of->user->razonsocial === '')
+                                @if($of->user->razonsocial == '')
                                 <td>{{$of->user->apellido}} {{$of->user->name}}</td>
                                 @else
                                 <td>{{$of->user->razonsocial}}</td>
@@ -116,7 +116,7 @@
                                 <td>{{$of->puesto->descripcion}}</td>
                                 <td>{{$of->cobro->descripcion}}</td>
                                 <td>{{$of->plazo}}</td>
-                                <td>@if(Auth::user()->activo === 1 && Auth::user()->id != $of->user->id && Auth::user()->admin === 0)
+                                <td>@if(Auth::user()->activo == 1 && Auth::user()->id != $of->user->id && Auth::user()->admin == 0)
                                         <button type="button" id="ofertar" data-toggle="modal" onclick="ofertar({{$of->id}},{{$of->cantidad}},{{$of->precio}},{{$of->id_puesto}},{{$of->id_cobro}},'{{$of->plazo}}')" class="btn btn-success admin tabla">Ofertar</button>
                                     @else
                                         <button type="button" data-toggle="modal" data_target="#modalOfertar" disabled class="btn btn-success admin tabla" title="Su Usuario no está ACTIVO o esta Oferta es suya">Ofertar</button>
@@ -187,7 +187,7 @@
 	                                <select class="form-control" id="idPuesto" name="puestoCo" value="{{ old('puestoCo') }}" required>
 	                                    <option hidden value=""> -- Producto Puesto en -- </option>
                                         @foreach ($puestos as $puesto)
-                                        @if($puesto->id === "this.form.idPuesto.value")
+                                        @if($puesto->id == "this.form.idPuesto.value")
                                         <option value="{{$puesto->id}}" selected>{{$puesto->descripcion}}</option>
                                         @else
                                         <option value="{{$puesto->id}}">{{$puesto->descripcion}}</option>
@@ -209,7 +209,7 @@
                                     <select class="form-control" id="idCobro" name="cobroCo" value="{{ old('cobroCo') }}" required>
                                         <option hidden value=""> -- Forma de Cobro -- </option>
                                         @foreach ($cobros as $cobro)
-                                        @if($cobro->id === "this.form.idCobro.value")
+                                        @if($cobro->id == "this.form.idCobro.value")
                                         <option value="{{$cobro->id}}" selected>{{$cobro->descripcion}}</option>
                                         @else
                                         <option value="{{$cobro->id}}">{{$cobro->descripcion}}</option>
