@@ -29,7 +29,7 @@ class UsuarioRegistrado extends Mailable
     public function build()
     {
         return $this->view('email.nuevoOperador')
-                    ->from('no-contestar@corrientes.gov.ar')
+                    ->from('administrador@metha.gob.ar')
                     ->subject('Nuevo Operador');
     }
 }

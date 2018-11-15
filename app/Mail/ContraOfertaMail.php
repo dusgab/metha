@@ -31,7 +31,7 @@ class ContraOfertaMail extends Mailable
     public function build()
     {
         return $this->view('email.contraOferta')
-                    ->from('no-contestar@corrientes.gov.ar')
+                    ->from('administrador@metha.gob.ar')
                     ->subject('Nueva Contra Oferta');
     }
 }

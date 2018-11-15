@@ -134,7 +134,8 @@ class RegisterController extends Controller
 
             Mail::to(config('mail.username'))->send(new UsuarioRegistrado());
             
-            Session::flash('message','Usuario registrado con éxito!');
+            Session::flash('message','Usuario registrado con éxito! \n 
+                                        Se le ha enviado un correo electrónico a la dirección con la que se registró. Por favor verifique su buzon de entrada o correos no deseados.');
 
             DB::commit();
 

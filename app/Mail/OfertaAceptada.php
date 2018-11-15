@@ -35,7 +35,7 @@ class OfertaAceptada extends Mailable
     public function build()
     {
         return $this->view('email.ofertaAceptada')
-                    ->from('no-contestar@corrientes.gov.ar')
+                    ->from('administrador@metha.gob.ar')
                     ->subject('Contra Oferta Aceptada');
     }
 }

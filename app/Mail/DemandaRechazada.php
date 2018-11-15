@@ -32,7 +32,7 @@ class DemandaRechazada extends Mailable
     public function build()
     {
         return $this->view('email.demandaRechazada')
-                    ->from('no-contestar@corrientes.gov.ar')
+                    ->from('administrador@metha.gob.ar')
                     ->subject('Contra Demanda Rechazada');
     }
 }

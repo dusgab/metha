@@ -34,7 +34,7 @@ class ProductosRecibidosMail extends Mailable
     public function build()
     {
         return $this->view('email.productosRecibidos')
-                    ->from('no-contestar@corrientes.gov.ar')
+                    ->from('administrador@metha.gob.ar')
                     ->subject('Productos Recibidos');
     }
 }

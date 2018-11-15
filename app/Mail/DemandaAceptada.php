@@ -35,7 +35,7 @@ class DemandaAceptada extends Mailable
     public function build()
     {
         return $this->view('email.demandaAceptada')
-                    ->from('no-contestar@corrientes.gov.ar')
+                    ->from('administrador@metha.gob.ar')
                     ->subject('Contra Demanda Aceptada');
     }
 }

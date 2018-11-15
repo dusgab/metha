@@ -32,7 +32,7 @@ class OfertaRechazada extends Mailable
     public function build()
     {
         return $this->view('email.ofertaRechazada')
-                    ->from('no-contestar@corrientes.gov.ar')
+                    ->from('administrador@metha.gob.ar')
                     ->subject('Contra Oferta Rechazada');
     }
 }

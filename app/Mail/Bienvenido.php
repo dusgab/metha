@@ -29,7 +29,7 @@ class Bienvenido extends Mailable
     public function build()
     {
         return $this->view('email.bienvenido')
-                    ->from('no-contestar@corrientes.gov.ar')
+                    ->from('administrador@metha.gob.ar')
                     ->subject('Bienvenido!');
     }
 }

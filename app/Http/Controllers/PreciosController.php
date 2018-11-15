@@ -50,7 +50,7 @@ class PreciosController extends Controller
 										->join('productos', 'ofertas.id_prod', '=', 'productos.id')
 										->join('modos', 'ofertas.id_modo', '=', 'modos.id')
 										->join('medidas', 'ofertas.id_medida', '=', 'medidas.id')
-										->select(DB::raw('CONCAT(productos.nombre, " ", productos.descripcion, " ", productos.descripcion2, " ", modos.descripcion, " ", "X", " ", ofertas.peso, " ",  medidas.descripcion) as nombre'), DB::raw('max(contraofertas.precio) as max'), DB::raw('min(contraofertas.precio) as min'), DB::raw('CAST(avg(contraofertas.precio) as int) AS prom'))
+										->select(DB::raw('CONCAT(productos.nombre, " ", productos.descripcion, " ", productos.descripcion2, " ", modos.descripcion, " ", "X", " ", ofertas.peso, " ",  medidas.descripcion) as nombre'), DB::raw('max(contraofertas.precio) as max'), DB::raw('min(contraofertas.precio) as min'), DB::raw('CAST(avg(contraofertas.precio) as SIGNED) AS prom'))
 										->whereDate('operacionofertas.fecha', '=', $fecha)
 										->where('productos.nombre', 'LIKE', '%'.$buscar.'%')
 										->groupBy('productos.nombre')
@@ -66,7 +66,7 @@ class PreciosController extends Controller
 										->join('productos', 'ofertas.id_prod', '=', 'productos.id')
 										->join('modos', 'ofertas.id_modo', '=', 'modos.id')
 										->join('medidas', 'ofertas.id_medida', '=', 'medidas.id')
-										->select(DB::raw('productos.id as id'), DB::raw('CONCAT(productos.nombre, " ", productos.descripcion, " ", productos.descripcion2, " ", modos.descripcion, " ", "X", " ", ofertas.peso, " ",  medidas.descripcion) as nombre'), DB::raw('max(contraofertas.precio) as max'), DB::raw('min(contraofertas.precio) as min'), DB::raw('CAST(avg(contraofertas.precio) as int) AS prom'))
+										->select(DB::raw('productos.id as id'), DB::raw('CONCAT(productos.nombre, " ", productos.descripcion, " ", productos.descripcion2, " ", modos.descripcion, " ", "X", " ", ofertas.peso, " ",  medidas.descripcion) as nombre'), DB::raw('max(contraofertas.precio) as max'), DB::raw('min(contraofertas.precio) as min'), DB::raw('CAST(avg(contraofertas.precio) as SIGNED) AS prom'))
 										->whereDate('contraofertas.created_at', '>=', $fechaDes)
 										->whereDate('contraofertas.created_at', '<=', $fechaHas)
 										->where('productos.nombre', 'LIKE', '%'.$buscar.'%')
@@ -77,6 +77,7 @@ class PreciosController extends Controller
 										->groupBy('modos.descripcion')
 										->groupBy('ofertas.peso')
 										->groupBy('medidas.descripcion')
+										->groupBy('contraofertas.created_at')
 										->orderBy('contraofertas.created_at', 'ASC')
 										->paginate(5, array('contraofertas.*'), 'po');
 
@@ -85,7 +86,7 @@ class PreciosController extends Controller
 										->join('modos', 'demandas.id_modo', '=', 'modos.id')
 										->join('medidas', 'demandas.id_medida', '=', 'medidas.id')
 										->join('puestos', 'demandas.id_puesto', '=', 'puestos.id')
-										->select(DB::raw('CONCAT(productos.nombre, " ", productos.descripcion, " ", productos.descripcion2, " ", modos.descripcion, " ", "X", " ", demandas.peso, " ",  medidas.descripcion) as nombre'), DB::raw('max(demandas.precio) as max'), DB::raw('min(demandas.precio) as min'), DB::raw('CAST(avg(demandas.precio) as int) AS prom'))
+										->select(DB::raw('CONCAT(productos.nombre, " ", productos.descripcion, " ", productos.descripcion2, " ", modos.descripcion, " ", "X", " ", demandas.peso, " ",  medidas.descripcion) as nombre'), DB::raw('max(demandas.precio) as max'), DB::raw('min(demandas.precio) as min'), DB::raw('CAST(avg(demandas.precio) as SIGNED) AS prom'))
 										->where('puestos.descripcion', 'LIKE', '%buenos aires%')
 										->whereDate('demandas.fechaEntrega', '=', $preciot)
 										->where('productos.nombre', 'LIKE', '%'.$buscar.'%')
@@ -110,8 +111,9 @@ class PreciosController extends Controller
 				->join('productos', 'ofertas.id_prod', '=', 'productos.id')
 				->join('modos', 'ofertas.id_modo', '=', 'modos.id')
 				->join('medidas', 'ofertas.id_medida', '=', 'medidas.id')
-				->select(DB::raw('productos.id as id'), DB::raw('DATE_FORMAT(contraofertas.created_at, "%Y-%m-%d") as fecha'), DB::raw('CONCAT(productos.nombre, " ", productos.descripcion, " ", productos.descripcion2, " ", modos.descripcion, " ", "X", " ", ofertas.peso, " ",  medidas.descripcion) as nombrep'), DB::raw('max(contraofertas.precio) as max'), DB::raw('min(contraofertas.precio) as min'), DB::raw('CAST(avg(contraofertas.precio) as int) AS prom'))
+				->select(DB::raw('productos.id as id'), DB::raw('DATE_FORMAT(contraofertas.created_at, "%Y-%m-%d") as fecha'), DB::raw('CONCAT(productos.nombre, " ", productos.descripcion, " ", productos.descripcion2, " ", modos.descripcion, " ", "X", " ", ofertas.peso, " ",  medidas.descripcion) as nombrep'), DB::raw('max(contraofertas.precio) as max'), DB::raw('min(contraofertas.precio) as min'), DB::raw('CAST(avg(contraofertas.precio) as SIGNED) AS prom'))
 				->where('productos.id', $id)
+				->where('nombrep', '=', $nombre)
 				->whereDate('contraofertas.created_at', '>=', $fd)
 				->whereDate('contraofertas.created_at', '<=', $fh)
 				->groupBy('fecha')
@@ -122,8 +124,10 @@ class PreciosController extends Controller
 				->groupBy('modos.descripcion')
 				->groupBy('ofertas.peso')
 				->groupBy('medidas.descripcion')
-				->having('nombrep', '=', $nombre)
+				->groupBy('contraofertas.created_at')
+				->groupBy('nombrep')
 				->orderBy('contraofertas.created_at', 'ASC')
+				->orderBy('nombrep', 'ASC')
 				->get(['contraofertas.*'])->toArray();
 
 				$max = array_column($data, 'max');

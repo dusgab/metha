@@ -31,7 +31,7 @@ class ContraDemandaMail extends Mailable
     public function build()
     {
         return $this->view('email.contraDemanda')
-                    ->from('no-contestar@corrientes.gov.ar')
+                    ->from('administrador@metha.gob.ar')
                     ->subject('Nueva Contra Demanda');
     }
 }
