@@ -123,7 +123,7 @@
                                         <label for="descripcion" class="col-md-4 control-label">Descripción</label>
 
                                         <div class="col-md-6">
-                                            <input type="text" class="form-control" name="descripcion" value="{{ old('descripcion') }}" placeholder="Ej: Blanca" required >
+                                            <input type="text" class="form-control" name="descripcion" value="{{ old('descripcion') }}" placeholder="Ej: Blanca">
 
                                             @if ($errors->has('descripcion'))
                                                 <span class="help-block">

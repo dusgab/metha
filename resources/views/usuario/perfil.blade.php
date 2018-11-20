@@ -25,61 +25,6 @@
                             </div>
                         </div>
 
-                        <div class="form-group{{ $errors->has('name') ? ' has-error' : '' }}">
-                            <label for="name" class="col-md-4 control-label">Nombre</label>
-
-                            <div class="col-md-6">
-                                <input disabled id="name" type="text" class="form-control" name="name" value="{{ $user->name }}" >
-
-                                @if ($errors->has('name'))
-                                    <span class="help-block">
-                                        <strong>{{ $errors->first('name') }}</strong>
-                                    </span>
-                                @endif
-                            </div>
-                        </div>
-
-                        <div class="form-group{{ $errors->has('apellido') ? ' has-error' : '' }}">
-                            <label for="apellido" class="col-md-4 control-label">Apellido</label>
-
-                            <div class="col-md-6">
-                                <input disabled id="apellido" type="text" class="form-control" name="apellido" value="{{ $user->apellido }}" >
-
-                                @if ($errors->has('apellido'))
-                                    <span class="help-block">
-                                        <strong>{{ $errors->first('apellido') }}</strong>
-                                    </span>
-                                @endif
-                            </div>
-                        </div>
-
-                        <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
-                            <label for="email" class="col-md-4 control-label">Correo Electrónico</label>
-
-                            <div class="col-md-6">
-                                <input disabled id="email" type="email" class="form-control" name="email" value="{{ $user->email }}" >
-
-                                @if ($errors->has('email'))
-                                    <span class="help-block">
-                                        <strong>{{ $errors->first('email') }}</strong>
-                                    </span>
-                                @endif
-                            </div>
-                        </div>
-
-                        <div class="form-group{{ $errors->has('password') ? ' has-error' : '' }}">
-                            <label for="password" class="col-md-4 control-label">Contraseña</label>
-
-                            <div class="col-md-6">
-                                <input disabled id="password" type="password" class="form-control" name="password" value="{{ $user->password }}" >
-
-                                @if ($errors->has('password'))
-                                    <span class="help-block">
-                                        <strong>{{ $errors->first('password') }}</strong>
-                                    </span>
-                                @endif
-                            </div>
-                        </div>
 
                         <div class="form-group{{ $errors->has('cuit') ? ' has-error' : '' }}">
                             <label for="cuit" class="col-md-4 control-label">CUIT</label>
@@ -95,11 +40,67 @@
                             </div>
                         </div>
 
+                        <div class="form-group{{ $errors->has('name') ? ' has-error' : '' }}">
+                            <label for="name" class="col-md-4 control-label">Nombre</label>
+
+                            <div class="col-md-6">
+                                <input id="name" type="text" class="form-control" name="name" value="{{ $user->name }}" required>
+
+                                @if ($errors->has('name'))
+                                    <span class="help-block">
+                                        <strong>{{ $errors->first('name') }}</strong>
+                                    </span>
+                                @endif
+                            </div>
+                        </div>
+
+                        <div class="form-group{{ $errors->has('apellido') ? ' has-error' : '' }}">
+                            <label for="apellido" class="col-md-4 control-label">Apellido</label>
+
+                            <div class="col-md-6">
+                                <input id="apellido" type="text" class="form-control" name="apellido" value="{{ $user->apellido }}" required>
+
+                                @if ($errors->has('apellido'))
+                                    <span class="help-block">
+                                        <strong>{{ $errors->first('apellido') }}</strong>
+                                    </span>
+                                @endif
+                            </div>
+                        </div>
+
+                        <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
+                            <label for="email" class="col-md-4 control-label">Correo Electrónico</label>
+
+                            <div class="col-md-6">
+                                <input id="email" type="email" class="form-control" name="email" value="{{ $user->email }}" required>
+
+                                @if ($errors->has('email'))
+                                    <span class="help-block">
+                                        <strong>{{ $errors->first('email') }}</strong>
+                                    </span>
+                                @endif
+                            </div>
+                        </div>
+
+                        <div class="form-group{{ $errors->has('password') ? ' has-error' : '' }}">
+                            <label for="password" class="col-md-4 control-label">Contraseña</label>
+
+                            <div class="col-md-6">
+                                <input id="password" type="password" class="form-control" name="password" value="{{ $user->password }}" required>
+
+                                @if ($errors->has('password'))
+                                    <span class="help-block">
+                                        <strong>{{ $errors->first('password') }}</strong>
+                                    </span>
+                                @endif
+                            </div>
+                        </div>
+
                         <div class="form-group{{ $errors->has('telefono') ? ' has-error' : '' }}">
                             <label for="telefono" class="col-md-4 control-label">Teléfono</label>
 
                             <div class="col-md-6">
-                                <input disabled id="telefono" type="text" class="form-control" name="telefono" value="{{ $user->telefono }}"  maxlength="13" inputmode="numeric">
+                                <input id="telefono" type="text" class="form-control" name="telefono" value="{{ $user->telefono }}"  maxlength="13" inputmode="numeric" required>
 
                                 @if ($errors->has('telefono'))
                                     <span class="help-block">
@@ -113,7 +114,7 @@
                             <label for="domicilio" class="col-md-4 control-label">Domicilio</label>
 
                             <div class="col-md-6">
-                                <input disabled id="domicilio" type="text" class="form-control" name="domicilio" value="{{ $user->domicilio }}" >
+                                <input id="domicilio" type="text" class="form-control" name="domicilio" value="{{ $user->domicilio }}" required>
 
                                 @if ($errors->has('domicilio'))
                                     <span class="help-block">
@@ -127,7 +128,7 @@
                             <label for="id_provincia" class="col-md-4 control-label">Provincia</label>
 
                             <div class="col-md-6">
-                                <input type="text" class="form-control" disabled  value="{{$user->provincia->nombre}}">
+                                <input type="text" class="form-control" value="{{$user->provincia->nombre}}" required disabled>
                             </select>
 
                                 @if ($errors->has('id_provincia'))
@@ -142,11 +143,39 @@
                             <label for="id_ciudad" class="col-md-4 control-label">Ciudad</label>
 
                             <div class="col-md-6">
-                                <input type="text" class="form-control" disabled  value="{{$user->ciudad->nombre}}">
+                                <input type="text" class="form-control" value="{{$user->ciudad->nombre}}" required disabled>
 
                                 @if ($errors->has('id_ciudad'))
                                     <span class="help-block">
                                         <strong>{{ $errors->first('id_ciudad') }}</strong>
+                                    </span>
+                                @endif
+                            </div>
+                        </div>
+
+                        <div class="form-group{{ $errors->has('tipo_us') ? ' has-error' : '' }}">
+                            <label for="tipo_us" class="col-md-4 control-label">Tipo de Usuario</label>
+
+                            <div class="col-md-6">
+                                <input type="text" class="form-control" value="{{$user->tipo_us->descripcion}}" required disabled>
+
+                                @if ($errors->has('tipo_us'))
+                                    <span class="help-block">
+                                        <strong>{{ $errors->first('tipo_us') }}</strong>
+                                    </span>
+                                @endif
+                            </div>
+                        </div>
+
+                        <div class="form-group{{ $errors->has('registro') ? ' has-error' : '' }}">
+                            <label for="registro" class="col-md-4 control-label">Registro</label>
+
+                            <div class="col-md-6">
+                                <input type="text" class="form-control" value="{{$user->registro}}" required disabled>
+
+                                @if ($errors->has('registro'))
+                                    <span class="help-block">
+                                        <strong>{{ $errors->first('registro') }}</strong>
                                     </span>
                                 @endif
                             </div>

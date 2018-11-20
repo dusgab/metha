@@ -58,7 +58,7 @@ class ContrademandaController extends Controller
                                         })->get();
     	 $dem = Demanda::Find($id);
 
-    	 return view('/usuario/detalleContrademanda', array('cdemandas' => $cdemandas, 'cdacep' => $cdacep, 'dem' => $dem));
+    	 return view('/usuario/detalleContraDemanda', array('cdemandas' => $cdemandas, 'cdacep' => $cdacep, 'dem' => $dem));
     }
 
     public function aceptardemanda ($id) {

@@ -66,7 +66,7 @@ class AdminController extends Controller
 
     public function productos(){
     	
-        $productos = Producto::orderBy('descripcion', 'ASC')->paginate(5, array('productos.*'), 'p');
+        $productos = Producto::orderBy('nombre', 'ASC')->paginate(15, array('productos.*'), 'p');
         $categorias = Categoria::orderBy('descripcion', 'ASC')->paginate(5, array('categorias.*'), 'c');
         $medidas = Medida::orderBy('descripcion', 'ASC')->paginate(5, array('medidas.*'), 'm');
 
