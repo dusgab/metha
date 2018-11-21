@@ -2,6 +2,12 @@
 
 @section('content')
     @if($user->id == Auth::user()->id)
+    @if(Session::has('message'))
+        <div class="alert alert-success alert-dismissible fade in" role="alert">
+          <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+          <strong>{{Session::get('message')}}</strong>
+        </div>
+    @endif
     <div class="container datos">
         <div class="col-md-8 col-md-offset-2">
             <div class="panel panel-default">
@@ -44,7 +50,7 @@
                             <label for="name" class="col-md-4 control-label">Nombre</label>
 
                             <div class="col-md-6">
-                                <input id="name" type="text" class="form-control" name="name" value="{{ $user->name }}" required>
+                                <input id="name" type="text" class="form-control" name="name" value="{{ $user->name }}" required disabled>
 
                                 @if ($errors->has('name'))
                                     <span class="help-block">
@@ -58,7 +64,7 @@
                             <label for="apellido" class="col-md-4 control-label">Apellido</label>
 
                             <div class="col-md-6">
-                                <input id="apellido" type="text" class="form-control" name="apellido" value="{{ $user->apellido }}" required>
+                                <input id="apellido" type="text" class="form-control" name="apellido" value="{{ $user->apellido }}" required disabled>
 
                                 @if ($errors->has('apellido'))
                                     <span class="help-block">
@@ -72,7 +78,7 @@
                             <label for="email" class="col-md-4 control-label">Correo Electrónico</label>
 
                             <div class="col-md-6">
-                                <input id="email" type="email" class="form-control" name="email" value="{{ $user->email }}" required>
+                                <input id="email" type="email" class="form-control" name="email" value="{{ $user->email }}" required disabled>
 
                                 @if ($errors->has('email'))
                                     <span class="help-block">
@@ -86,7 +92,7 @@
                             <label for="password" class="col-md-4 control-label">Contraseña</label>
 
                             <div class="col-md-6">
-                                <input id="password" type="password" class="form-control" name="password" value="{{ $user->password }}" required>
+                                <input id="password" type="password" class="form-control" name="password" value="{{ $user->password }}" required disabled>
 
                                 @if ($errors->has('password'))
                                     <span class="help-block">
@@ -100,7 +106,7 @@
                             <label for="telefono" class="col-md-4 control-label">Teléfono</label>
 
                             <div class="col-md-6">
-                                <input id="telefono" type="text" class="form-control" name="telefono" value="{{ $user->telefono }}"  maxlength="13" inputmode="numeric" required>
+                                <input id="telefono" type="text" class="form-control" name="telefono" value="{{ $user->telefono }}"  maxlength="13" inputmode="numeric" required disabled>
 
                                 @if ($errors->has('telefono'))
                                     <span class="help-block">
@@ -114,7 +120,7 @@
                             <label for="domicilio" class="col-md-4 control-label">Domicilio</label>
 
                             <div class="col-md-6">
-                                <input id="domicilio" type="text" class="form-control" name="domicilio" value="{{ $user->domicilio }}" required>
+                                <input id="domicilio" type="text" class="form-control" name="domicilio" value="{{ $user->domicilio }}" required disabled>
 
                                 @if ($errors->has('domicilio'))
                                     <span class="help-block">
@@ -157,7 +163,7 @@
                             <label for="tipo_us" class="col-md-4 control-label">Tipo de Usuario</label>
 
                             <div class="col-md-6">
-                                <input type="text" class="form-control" value="{{$user->tipo_us->descripcion}}" required disabled>
+                                <input type="text" class="form-control" value="{{$user->tipoUsuario->descripcion}}" required disabled>
 
                                 @if ($errors->has('tipo_us'))
                                     <span class="help-block">

@@ -135,7 +135,7 @@
                         <p>Perú 1186, Corrientes, Argentina</p>
                     </div>
                     <div><i class="fa fa-phone footer-contacts-icon"></i>
-                        <p class="footer-center-info email text-left">+54 03794-4431360</p>
+                        <p class="footer-center-info email text-left">+54 03794-431360</p>
                     </div>
                     <div><i class="fa fa-envelope footer-contacts-icon"></i>
                         <p> <a href="#" target="_blank">dircoopctes@gmail.com</a></p>

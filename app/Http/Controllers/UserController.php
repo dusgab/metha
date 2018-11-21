@@ -107,13 +107,14 @@ class UserController extends Controller
         $user = User::FindOrFail(Auth::user()->id);
         $user->name = $request->name;
         $user->apellido = $request->apellido;
-        $user->cuit = $request->cuit;
+        $user->email = $request->email;
+        $user->password = $request->password;
         $user->domicilio = $request->domicilio;
         $user->telefono = $request->telefono;
-        $user->id_ciudad = $request->id_ciudad;
-        $user->id_provincia = $request->id_provincia;
 
         $user->save();
+
+        Session::flash('message','Datos actualizados correctamente.');
 
         return redirect('/usuario/show/{Auth::user()->id}');
     }
