@@ -59,7 +59,7 @@ class OfertasController extends Controller
                                         ->orderBy('ofertas.fechaEntrega', 'ASC')
                                         ->paginate(10, array('contraofertas.*'), 'co');
         
-    	$productos = Producto::All();
+    	$productos = Producto::orderBy('nombre', 'ASC')->get();
         $modos = Modo::orderBy('descripcion', 'ASC')->get();
         $cobros = Cobro::orderBy('descripcion', 'ASC')->get();
         $puestos = Puesto::orderBy('descripcion', 'ASC')->get();

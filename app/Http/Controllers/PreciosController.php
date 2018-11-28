@@ -60,7 +60,7 @@ class PreciosController extends Controller
 										->groupBy('ofertas.peso')
 										->groupBy('medidas.descripcion')
 										->orderBy('productos.nombre', 'DESC')
-										->paginate(5, array('operacionofertas.*'), 'pd');
+										->paginate(15, array('operacionofertas.*'), 'pd');
 		//Precios Ofrecidos
 		$precioso = Contraoferta::leftJoin('ofertas', 'contraofertas.id_oferta', '=', 'ofertas.id')
 										->join('productos', 'ofertas.id_prod', '=', 'productos.id')
@@ -77,9 +77,8 @@ class PreciosController extends Controller
 										->groupBy('modos.descripcion')
 										->groupBy('ofertas.peso')
 										->groupBy('medidas.descripcion')
-										->groupBy('contraofertas.created_at')
 										->orderBy('contraofertas.created_at', 'ASC')
-										->paginate(5, array('contraofertas.*'), 'po');
+										->paginate(15, array('contraofertas.*'), 'po');
 
 		//Precios Demandados
 		$preciost = Demanda::leftJoin('productos', 'demandas.id_prod', '=', 'productos.id')
@@ -97,7 +96,7 @@ class PreciosController extends Controller
 										->groupBy('demandas.peso')
 										->groupBy('medidas.descripcion')
 										->orderBy('productos.nombre', 'DESC')
-										->paginate(3, array('demandas.*'), 'tp');
+										->paginate(10, array('demandas.*'), 'tp');
 
 		return view('precios', array('preciosd' => $preciosd, 'precioso' => $precioso, 'preciost' => $preciost, 'fechaDes' => $fechaDes, 'fechaHas' => $fechaHas));
 	}
