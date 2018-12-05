@@ -53,11 +53,11 @@ class OfertasController extends Controller
 
     public function misofertas() {
 
-    	$ofertas = Oferta::where('id_op', '=', (Auth::user()->id))->orderBy('fechaEntrega', 'ASC')->paginate(10, ['*'], 'o');
+    	$ofertas = Oferta::where('id_op', '=', (Auth::user()->id))->orderBy('created_at', 'DESC')->paginate(15, ['*'], 'o');
         $cofertas = Contraoferta::join('ofertas', 'contraofertas.id_oferta', '=', 'ofertas.id')
                                         ->where('contraofertas.id_comprador', '=', (Auth::user()->id))
-                                        ->orderBy('ofertas.fechaEntrega', 'ASC')
-                                        ->paginate(10, array('contraofertas.*'), 'co');
+                                        ->orderBy('ofertas.created_at', 'DESC')
+                                        ->paginate(15, array('contraofertas.*'), 'co');
         
     	$productos = Producto::orderBy('nombre', 'ASC')->get();
         $modos = Modo::orderBy('descripcion', 'ASC')->get();
